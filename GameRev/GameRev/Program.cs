@@ -1,4 +1,5 @@
 using GameRev.ApplicationServices.API.Domain;
+using GameRev.ApplicationServices.Mappings;
 using GameRev.DataAccess;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
@@ -6,6 +7,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<IQueryExecutor, QueryExecutor>();
+
+builder.Services.AddAutoMapper(typeof(GamesProfile).Assembly);
+
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(ResponseBase<>).Assembly));
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));

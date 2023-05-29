@@ -14,37 +14,37 @@ namespace GameRev.DataAccess
             _entities = gameRevStorageContext.Set<T>();
         }
 
-        public IEnumerable<T> GetAll()
+        public Task<List<T>> GetAll()
         {
-            return _entities.AsEnumerable();
+            return _entities.ToListAsync();
         }
 
-        public T GetById(int id)
+        public Task<T> GetById(int id)
         {
-            return _entities.SingleOrDefault(x => x.Id == id);
+            return _entities.SingleOrDefaultAsync(x => x.Id == id);
         }
 
-        public void Insert(T entity)
+        public Task Insert(T entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
 
             _entities.Add(entity);
-            _gameRevStorageContext.SaveChanges();
+            return _gameRevStorageContext.SaveChangesAsync();
         }
 
-        public void Update(T entity)
+        public Task Update(T entity)
         {
             if (entity == null) throw new ArgumentNullException("entity");
 
             _entities.Update(entity);
-            _gameRevStorageContext.SaveChanges();
+            return _gameRevStorageContext.SaveChangesAsync();
         }
 
-        public void Delete(int id)
+        public async Task Delete(int id)
         {
             T entity = _entities.SingleOrDefault(x => x.Id == id);
             _entities.Remove(entity);
-            _gameRevStorageContext.SaveChanges();
+            await _gameRevStorageContext.SaveChangesAsync();
         }        
     }
 }

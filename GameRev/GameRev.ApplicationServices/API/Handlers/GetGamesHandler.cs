@@ -1,35 +1,34 @@
-﻿using GameRev.ApplicationServices.API.Domain;
+﻿using AutoMapper;
+using GameRev.ApplicationServices.API.Domain;
 using GameRev.DataAccess;
-using GameRev.DataAccess.Entities;
+using GameRev.DataAccess.CQRS.Queries;
 using MediatR;
 
 namespace GameRev.ApplicationServices.API.Handlers
 {
     public class GetGamesHandler : IRequestHandler<GetGamesRequest, GetGamesResponse>
     {
-        private readonly IRepository<Game> _gameRepository;
+        private readonly IMapper _mapper;
 
-        public GetGamesHandler(IRepository<Game> gameRepository)
+        private readonly IQueryExecutor _queryExecutor;
+
+        public GetGamesHandler(IMapper mapper, IQueryExecutor queryExecutor)
         {
-            _gameRepository = gameRepository;
+            _mapper = mapper;
+            _queryExecutor = queryExecutor;
+
         }
 
-        public Task<GetGamesResponse> Handle(GetGamesRequest request, CancellationToken cancellationToken)
+        public async Task<GetGamesResponse> Handle(GetGamesRequest request, CancellationToken cancellationToken)
         {
-            var games = _gameRepository.GetAll();
-            var domainGames = games.Select(x => new Domain.Models.Game()
-            {
-                Id = x.Id,
-                Title = x.Title,
-                Description = x.Description,
-                ReleaseDate = x.ReleaseDate
-            });
-
+            var query = new GetGamesQuery();
+            var games = await _queryExecutor.Execute(query);
+            var mappedGame = _mapper.Map<List<Domain.Models.Game>>(games);
             var response = new GetGamesResponse()
             {
-                Data = domainGames.ToList()
+                Data = mappedGame
             };
-            return Task.FromResult(response);
+            return response;
         }
     }
 }

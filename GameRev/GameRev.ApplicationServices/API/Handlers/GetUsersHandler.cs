@@ -1,5 +1,7 @@
-﻿using GameRev.ApplicationServices.API.Domain;
+﻿using AutoMapper;
+using GameRev.ApplicationServices.API.Domain;
 using GameRev.DataAccess;
+using GameRev.DataAccess.CQRS.Queries;
 using GameRev.DataAccess.Entities;
 using MediatR;
 
@@ -7,31 +9,27 @@ namespace GameRev.ApplicationServices.API.Handlers
 {
     public class GetUsersHandler : IRequestHandler<GetUsersRequest, GetUsersResponse>
     {
-        private readonly IRepository<User> _userRepository;
+        private readonly IMapper _mapper;
 
-        public GetUsersHandler(IRepository<User> userRepository)
+        private readonly IQueryExecutor _queryExecutor;
+
+        public GetUsersHandler(IMapper mapper, IQueryExecutor queryExecutor)
         {
-            _userRepository = userRepository;
+            _mapper = mapper;
+            _queryExecutor = queryExecutor;
         }
 
-        public Task<GetUsersResponse> Handle(GetUsersRequest request, CancellationToken cancellationToken)
+        public async Task<GetUsersResponse> Handle(GetUsersRequest request, CancellationToken cancellationToken)
         {
-            var users = _userRepository.GetAll();
-            var domainUsers = users.Select(x => new Domain.Models.User()
-            {
-                Id = x.Id,
-                Login = x.Login,
-                Name = x.Name,
-                Surname = x.Surname,
-                Email = x.Email,
-                RegisterDate = x.RegisterDate
-            });
+            var query = new GetUsersQuery();
+            var users = await _queryExecutor.Execute(query);
+            var mappedUser = _mapper.Map<List<Domain.Models.User>>(users);
 
             var response = new GetUsersResponse()
             {
-                Data = domainUsers.ToList()
+                Data = mappedUser
             };
-            return Task.FromResult(response);
+            return response;
         }
     }
 }

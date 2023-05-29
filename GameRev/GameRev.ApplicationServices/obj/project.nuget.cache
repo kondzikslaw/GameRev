@@ -1,9 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ts8EaB76Wba9Q/vMtC/5Sd9j8YICXHxjbSgNfyPOunyfUCz8dJM6MG2f7dcPy1VShhaYyRnI7W5yOxNhfgM2yA==",
+  "dgSpecHash": "o/5KLqynKbR+zSfzgNE9mP48yrAAsyiT+w5OEXWdhAwoA8Awn/ay/oXZ44lQvU0jE3Wx+SjSicApRSQ2pNOuYQ==",
   "success": true,
   "projectFilePath": "D:\\Projekty\\GameRev\\GameRev\\GameRev.ApplicationServices\\GameRev.ApplicationServices.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
@@ -11,7 +13,7 @@
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.aspnetcore.openapi\\7.0.5\\microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
-    "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.data.sqlclient\\5.0.1\\microsoft.data.sqlclient.5.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\5.0.1\\microsoft.data.sqlclient.sni.runtime.5.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.entityframeworkcore\\7.0.5\\microsoft.entityframeworkcore.7.0.5.nupkg.sha512",

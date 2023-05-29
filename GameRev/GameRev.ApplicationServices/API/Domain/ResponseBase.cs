@@ -1,6 +1,6 @@
 ﻿namespace GameRev.ApplicationServices.API.Domain
 {
-    public class ResponseBase<T>
+    public abstract class ResponseBase<T>
     {
         public T Data { get; set; }
     }

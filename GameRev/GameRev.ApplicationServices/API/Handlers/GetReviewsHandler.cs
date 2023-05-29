@@ -1,5 +1,7 @@
-﻿using GameRev.ApplicationServices.API.Domain;
+﻿using AutoMapper;
+using GameRev.ApplicationServices.API.Domain;
 using GameRev.DataAccess;
+using GameRev.DataAccess.CQRS.Queries;
 using GameRev.DataAccess.Entities;
 using MediatR;
 
@@ -7,31 +9,27 @@ namespace GameRev.ApplicationServices.API.Handlers
 {
     public class GetReviewsHandler : IRequestHandler<GetReviewsRequest, GetReviewsResponse>
     {
-        private readonly IRepository<Review> _reviewRepository;
+        private readonly IMapper _mapper;
 
-        public GetReviewsHandler(IRepository<Review> reviewRepository)
+        private readonly IQueryExecutor _queryExecutor;
+
+        public GetReviewsHandler(IMapper mapper, IQueryExecutor queryExecutor)
         {
-            _reviewRepository = reviewRepository;
+            _mapper = mapper;
+            _queryExecutor = queryExecutor;
+
         }
 
-        public Task<GetReviewsResponse> Handle(GetReviewsRequest request, CancellationToken cancellationToken)
+        public async Task<GetReviewsResponse> Handle(GetReviewsRequest request, CancellationToken cancellationToken)
         {
-            var reviews = _reviewRepository.GetAll();
-            var domainReviews = reviews.Select(x => new Domain.Models.Review
-            {
-                Id = x.Id,
-                Content = x.Content,
-                Rate = x.Rate,
-                PublishDate = x.PublishDate,
-                AuthorId = x.AuthorId
-            });
-
+            var query = new GetReviewsQuery();
+            var reviews = await _queryExecutor.Execute(query);
+            var mappedReview = _mapper.Map<List<Domain.Models.Review>>(reviews);
             var response = new GetReviewsResponse()
             {
-                Data = domainReviews.ToList()
+                Data = mappedReview
             };
-
-            return Task.FromResult(response);
+            return response;
 
         }
     }
