@@ -1,0 +1,14 @@
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\bin\Debug\net7.0\GameRev.DataAccess.deps.json
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\bin\Debug\net7.0\GameRev.DataAccess.runtimeconfig.json
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\bin\Debug\net7.0\GameRev.DataAccess.dll
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\bin\Debug\net7.0\GameRev.DataAccess.pdb
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.csproj.AssemblyReference.cache
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.AssemblyInfoInputs.cache
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.AssemblyInfo.cs
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.csproj.CoreCompileInputs.cache
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.dll
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\refint\GameRev.DataAccess.dll
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.pdb
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\GameRev.DataAccess.genruntimeconfig.cache
+D:\Projekty\GameRev\GameRev\GameRev.DataAccess\obj\Debug\net7.0\ref\GameRev.DataAccess.dll
