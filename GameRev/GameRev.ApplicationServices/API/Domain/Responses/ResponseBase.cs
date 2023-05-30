@@ -1,4 +1,4 @@
-﻿namespace GameRev.ApplicationServices.API.Domain
+﻿namespace GameRev.ApplicationServices.API.Domain.Responses
 {
     public abstract class ResponseBase<T>
     {

@@ -1,6 +1,6 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Models;
 
-namespace GameRev.ApplicationServices.API.Domain
+namespace GameRev.ApplicationServices.API.Domain.Responses
 {
     public class GetUsersResponse : ResponseBase<List<User>>
     {

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using GameRev.ApplicationServices.API.Domain;
-using GameRev.DataAccess;
+using GameRev.ApplicationServices.API.Domain.Requests;
+using GameRev.ApplicationServices.API.Domain.Responses;
+using GameRev.DataAccess.CQRS;
 using GameRev.DataAccess.CQRS.Queries;
 using MediatR;
 

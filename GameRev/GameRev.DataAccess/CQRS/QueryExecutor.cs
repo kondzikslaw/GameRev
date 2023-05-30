@@ -1,13 +1,13 @@
 ﻿using GameRev.DataAccess.CQRS.Queries;
 
-namespace GameRev.DataAccess
+namespace GameRev.DataAccess.CQRS
 {
     public class QueryExecutor : IQueryExecutor
     {
         private readonly GameRevStorageContext _context;
 
         public QueryExecutor(GameRevStorageContext context)
-        { 
+        {
             _context = context;
         }
 
