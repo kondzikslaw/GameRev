@@ -17,7 +17,7 @@ namespace GameRev.DataAccess.Entities
         public string Email { get; set; }
         public DateTime RegisterDate { get; set; }
         public bool IsBlocked { get; set; }
-        public List<Game> Games { get; set; }
-        public UserRoleEnum UserRole { get; set; }
+        public List<Game>? Games { get; set; }
+        public UserRoleEnum? UserRole { get; set; }
     }
 }

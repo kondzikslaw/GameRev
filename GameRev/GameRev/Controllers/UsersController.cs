@@ -1,4 +1,4 @@
-﻿using GameRev.ApplicationServices.API.Domain.Requests;
+﻿using GameRev.ApplicationServices.API.Domain.Requests.Users;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -21,10 +21,41 @@ namespace GameRev.Controllers
             var response = await _mediator.Send(request);
             return Ok(response);
         }
+        [HttpGet]
+        [Route("{userId}")]
+        public async Task<IActionResult> GetById([FromRoute] int userId)
+        {
+            var request = new GetUserByIdRequest()
+            {
+                UserId = userId
+            };
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> AddUser([FromBody] AddUsersRequest request)
         {
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
+        [HttpPatch]
+        [Route("{userId}")]
+        public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request, [FromRoute] int userId)
+        {
+            request.Id = userId;
+            var response = await _mediator.Send(request);
+            return Ok(response);
+        }
+        [HttpDelete]
+        [Route("{userId}")]
+        public async Task<IActionResult> RemoveUser([FromRoute] int userId)
+        {
+            var request = new RemoveUserRequest()
+            {
+                Id = userId
+            };
+
             var response = await _mediator.Send(request);
             return Ok(response);
         }

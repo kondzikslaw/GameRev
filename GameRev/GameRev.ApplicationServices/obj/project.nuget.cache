@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "o/5KLqynKbR+zSfzgNE9mP48yrAAsyiT+w5OEXWdhAwoA8Awn/ay/oXZ44lQvU0jE3Wx+SjSicApRSQ2pNOuYQ==",
+  "dgSpecHash": "vRvp+iykBTGx8aXhu5WhoCnqxVI7bTs8nkd5XTnMAxm7hUx+e8hNBwYCH604Cg74M0gnQYzGS5M+CG7CIcqsMg==",
   "success": true,
   "projectFilePath": "D:\\Projekty\\GameRev\\GameRev\\GameRev.ApplicationServices\\GameRev.ApplicationServices.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,9 @@
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\mediatr\\12.0.1\\mediatr.12.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\mediatr.contracts\\2.0.1\\mediatr.contracts.2.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\11.1.0\\mediatr.extensions.microsoft.dependencyinjection.11.1.0.nupkg.sha512",

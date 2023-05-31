@@ -67,7 +67,7 @@ namespace GameRev.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("GameId")
+                    b.Property<int?>("GameId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("PublishDate")
@@ -117,7 +117,7 @@ namespace GameRev.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserRole")
+                    b.Property<int?>("UserRole")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -144,9 +144,7 @@ namespace GameRev.DataAccess.Migrations
                 {
                     b.HasOne("GameRev.DataAccess.Entities.Game", "Game")
                         .WithMany("Reviews")
-                        .HasForeignKey("GameId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("GameId");
 
                     b.Navigation("Game");
                 });
