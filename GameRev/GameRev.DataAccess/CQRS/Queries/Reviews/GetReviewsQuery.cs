@@ -8,7 +8,9 @@ namespace GameRev.DataAccess.CQRS.Queries.Reviews
         public int Id { get; set; }
         public override Task<List<Review>> Execute(GameRevStorageContext context)
         {
-            return context.Reviews.ToListAsync();
+            return context.Reviews
+                .Include(x => x.Game)
+                .ToListAsync();
         }
     }
 }

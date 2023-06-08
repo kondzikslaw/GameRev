@@ -12,6 +12,6 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Games
 
         public string Description { get; set; }
 
-        public DateTime ReleaseDate { get; set; }
+        public int ReleaseYear { get; set; }
     }
 }

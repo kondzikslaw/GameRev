@@ -2,7 +2,6 @@
 using GameRev.ApplicationServices.API.Domain.Requests.Games;
 using GameRev.ApplicationServices.API.Domain.Responses.Games;
 using GameRev.DataAccess.CQRS;
-using GameRev.DataAccess.CQRS.Commands;
 using GameRev.DataAccess.CQRS.Commands.Games;
 using GameRev.DataAccess.Entities;
 using MediatR;

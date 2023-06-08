@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using GameRev.ApplicationServices.API.Domain.Requests.Games;
+using GameRev.ApplicationServices.API.Domain.Responses;
 using GameRev.ApplicationServices.API.Domain.Responses.Games;
+using GameRev.ApplicationServices.API.ErrorHandling;
 using GameRev.DataAccess.CQRS;
 using GameRev.DataAccess.CQRS.Queries;
 using GameRev.DataAccess.CQRS.Queries.Games;
@@ -27,6 +29,15 @@ namespace GameRev.ApplicationServices.API.Handlers.Games
                 Id = request.GameId
             };
             var game = await _queryExecutor.Execute(query);
+
+            if (game == null)
+            {
+                return new GetGameByIdResponse()
+                {
+                    Error = new ErrorModel(ErrorType.NotFound)
+                };
+            }
+
             var mappedGame = _mapper.Map<Domain.Models.Game>(game);
             var response = new GetGameByIdResponse()
             {

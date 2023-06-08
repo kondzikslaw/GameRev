@@ -1,4 +1,5 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Requests.Games;
+using GameRev.ApplicationServices.API.Domain.Responses.Games;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,12 +7,11 @@ namespace GameRev.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class GamesController : ControllerBase
+    public class GamesController : ApiControllerBase
     {
-        private readonly IMediator _mediator;
-        public GamesController(IMediator mediator)
+        public GamesController(IMediator mediator, ILogger<GamesController> logger) : base(mediator) 
         {
-            _mediator = mediator;
+            logger.LogInformation("We are in Games");
         }
 
         [HttpGet]
@@ -23,14 +23,13 @@ namespace GameRev.Controllers
         }
         [HttpGet]
         [Route("{gameId}")]
-        public async Task<IActionResult> GetById([FromRoute] int gameId)
+        public Task<IActionResult> GetById([FromRoute] int gameId)
         {
             var request = new GetGameByIdRequest()
             {
                 GameId = gameId
             };
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.HandleRequest<GetGameByIdRequest, GetGameByIdResponse>(request);
         }
         [HttpPost]
         [Route("")]

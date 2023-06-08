@@ -1,4 +1,5 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Requests;
+using GameRev.ApplicationServices.API.Domain.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,12 +7,10 @@ namespace GameRev.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class ReviewsController : ControllerBase
+    public class ReviewsController : ApiControllerBase
     {
-        private readonly IMediator _mediator;
-        public ReviewsController(IMediator mediator)
+        public ReviewsController(IMediator mediator) : base(mediator)
         {
-            _mediator = mediator;
         }
 
         [HttpGet]
@@ -34,10 +33,15 @@ namespace GameRev.Controllers
         }
         [HttpPost]
         [Route("")]
-        public async Task<IActionResult> AddReview([FromBody] AddReviewsRequest request)
+        public Task<IActionResult> AddReview([FromBody] AddReviewsRequest request)
         {
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return this.HandleRequest<AddReviewsRequest, AddReviewsResponse>(request);
+            //if (!ModelState.IsValid)
+            //{
+            //    return BadRequest("BAD REQUEST");
+            //}
+            //var response = await _mediator.Send(request);
+            //return Ok(response);
         }
         [HttpPatch]
         [Route("{reviewId}")]
