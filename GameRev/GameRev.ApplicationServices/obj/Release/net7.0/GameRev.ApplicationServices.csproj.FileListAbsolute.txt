@@ -1,0 +1,15 @@
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\bin\Release\net7.0\GameRev.ApplicationServices.deps.json
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\bin\Release\net7.0\GameRev.ApplicationServices.dll
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\bin\Release\net7.0\GameRev.ApplicationServices.pdb
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\bin\Release\net7.0\GameRev.DataAccess.dll
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\bin\Release\net7.0\GameRev.DataAccess.pdb
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.csproj.AssemblyReference.cache
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.AssemblyInfoInputs.cache
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.AssemblyInfo.cs
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.csproj.CoreCompileInputs.cache
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.csproj.CopyComplete
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.dll
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\refint\GameRev.ApplicationServices.dll
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\GameRev.ApplicationServices.pdb
+D:\Projekty\GameRev\GameRev\GameRev.ApplicationServices\obj\Release\net7.0\ref\GameRev.ApplicationServices.dll
