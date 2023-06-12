@@ -13,5 +13,9 @@
         public string Email { get; set; }
 
         public DateTime RegisterDate { get; set; }
+
+        public bool IsBlocked { get; set; }
+
+        public List<Game> Games { get; set; }
     }
 }

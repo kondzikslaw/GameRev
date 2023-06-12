@@ -3,7 +3,7 @@ using MediatR;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests.Users
 {
-    public class UpdateUserRequest : IRequest<UpdateUserResponse>
+    public class UpdateUserRequest : RequestBase, IRequest<UpdateUserResponse>
     {
         public int Id { get; set; }
 

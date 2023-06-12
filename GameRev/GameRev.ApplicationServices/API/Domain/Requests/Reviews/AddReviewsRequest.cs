@@ -3,7 +3,7 @@ using MediatR;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests
 {
-    public class AddReviewsRequest : IRequest<AddReviewsResponse>
+    public class AddReviewsRequest : RequestBase, IRequest<AddReviewsResponse>
     {
         public int GameId { get; set; }
 
@@ -11,7 +11,7 @@ namespace GameRev.ApplicationServices.API.Domain.Requests
 
         public double Rate { get; set; }
 
-        public DateTime PublishDate { get; set; }
+        public DateTime PublishDate { get; set; } = DateTime.Now;
 
         public string AuthorId { get; set; }
     }

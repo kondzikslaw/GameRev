@@ -27,11 +27,13 @@ namespace GameRev.ApplicationServices.API.Handlers.Games
 
         public async Task<GetGamesResponse> Handle(GetGamesRequest request, CancellationToken cancellationToken)
         {
-            var game = await _giantBombConnector.Fetch("3030-1");
-            var query = new GetGamesQuery();
-            //{
-            //    Title = request.Title
-            //};
+            //var game = await _giantBombConnector.Fetch("3030-1");
+            var query = new GetGamesQuery()
+            {
+                Title = request.Title,
+                RateMin = request.RateMin,
+                RateMax = request.RateMax
+            };
             var games = await _queryExecutor.Execute(query);
             var mappedGame = _mapper.Map<List<Domain.Models.Game>>(games);
             var response = new GetGamesResponse()

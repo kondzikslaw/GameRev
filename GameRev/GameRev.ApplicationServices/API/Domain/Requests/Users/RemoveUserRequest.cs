@@ -4,8 +4,8 @@ using MediatR;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests.Users
 {
-    public class RemoveUserRequest : IRequest<RemoveUserResponse>
+    public class RemoveUserRequest : RequestBase, IRequest<RemoveUserResponse>
     {
-        public int Id { get; set; }
+        public string Login { get; set; }
     }
 }

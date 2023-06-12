@@ -16,6 +16,8 @@ namespace GameRev.ApplicationServices.API.Domain.Models
         
         public List<string> Reviews { get; set; }
 
+        public List<double> Rates { get; set; }
+
         public double Rate { get; set; }
     }
 }

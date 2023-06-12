@@ -4,7 +4,7 @@ using MediatR;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests.Users
 {
-    public class GetUsersRequest : IRequest<GetUsersResponse>
+    public class GetUsersRequest : RequestBase, IRequest<GetUsersResponse>
     {
     }
 }

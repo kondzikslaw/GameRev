@@ -4,7 +4,7 @@ using MediatR;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests.Games
 {
-    public class UpdateGameRequest : IRequest<UpdateGameResponse>
+    public class UpdateGameRequest : RequestBase, IRequest<UpdateGameResponse>
     {
         public int Id { get; set; }
 

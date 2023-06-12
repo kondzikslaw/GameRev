@@ -3,8 +3,8 @@ using MediatR;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests.Users
 {
-    public class GetUserByIdRequest : RequestBase, IRequest<GetUserByIdResponse>
+    public class GetUserMeRequest : RequestBase, IRequest<GetUserMeResponse>
     {
-        public int Id { get; set; }
+        public string Me { get; set; }
     }
 }
