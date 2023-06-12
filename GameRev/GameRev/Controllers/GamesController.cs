@@ -1,10 +1,12 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Requests.Games;
 using GameRev.ApplicationServices.API.Domain.Responses.Games;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameRev.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class GamesController : ApiControllerBase
@@ -13,14 +15,14 @@ namespace GameRev.Controllers
         {
             logger.LogInformation("We are in Games");
         }
-
+        [AllowAnonymous]
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllGames([FromQuery] GetGamesRequest request)
         {
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<GetGamesRequest, GetGamesResponse>(request);
         }
+        [AllowAnonymous]
         [HttpGet]
         [Route("{gameId}")]
         public Task<IActionResult> GetById([FromRoute] int gameId)
@@ -29,22 +31,20 @@ namespace GameRev.Controllers
             {
                 GameId = gameId
             };
-            return this.HandleRequest<GetGameByIdRequest, GetGameByIdResponse>(request);
+            return HandleRequest<GetGameByIdRequest, GetGameByIdResponse>(request);
         }
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> AddGame([FromBody] AddGamesRequest request)
         {
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<AddGamesRequest, AddGamesResponse>(request);
         }
         [HttpPut]
         [Route("{gameId}")]
         public async Task<IActionResult> UpdateGame([FromBody] UpdateGameRequest request, [FromRoute] int gameId)
         {
             request.Id = gameId;
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<UpdateGameRequest, UpdateGameResponse>(request);
         }
         [HttpDelete]
         [Route("{gameId}")]
@@ -55,8 +55,7 @@ namespace GameRev.Controllers
                 Id = gameId
             };
 
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<RemoveGameRequest, RemoveGameResponse>(request);
         }
     }
 }

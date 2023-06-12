@@ -1,8 +1,11 @@
-﻿using GameRev.ApplicationServices.API.Domain.Responses;
+﻿using GameRev.ApplicationServices.API.Domain.Requests;
+using GameRev.ApplicationServices.API.Domain.Responses;
 using GameRev.ApplicationServices.API.ErrorHandling;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.OpenApi.Extensions;
 using System.Net;
+using System.Security.Claims;
 
 namespace GameRev.Controllers
 {
@@ -16,15 +19,22 @@ namespace GameRev.Controllers
         }
 
         protected async Task<IActionResult> HandleRequest<TRequest, TResponse>(TRequest request)
-            where TRequest : IRequest<TResponse>
+            where TRequest : RequestBase, IRequest<TResponse>
             where TResponse : ErrorResponseBase
         {
-            if (!this.ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                return this.BadRequest(
-                    this.ModelState
+                return BadRequest(
+                    ModelState
                     .Where(x => x.Value.Errors.Any())
                     .Select(x => new { property = x.Key, errors = x.Value.Errors }));
+            }
+
+            if(User.Claims.FirstOrDefault() != null)
+            {
+                (request as RequestBase).AuthenticationIdentifier = Int32.Parse(User.FindFirstValue(ClaimTypes.NameIdentifier.ToString()));
+                (request as RequestBase).AuthenticationLogin = User.FindFirstValue(ClaimTypes.Name);
+                (request as RequestBase).AuthenticationUserRole = User.FindFirstValue(ClaimTypes.Role);
             }
 
             var response = await _mediator.Send(request);

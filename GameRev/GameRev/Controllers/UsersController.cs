@@ -1,63 +1,69 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Requests.Users;
+using GameRev.ApplicationServices.API.Domain.Responses.Users;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameRev.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : ApiControllerBase
     {
-        private readonly IMediator _mediator;
-        public UsersController(IMediator mediator)
+        public UsersController(IMediator mediator) : base(mediator)
         {
-            _mediator = mediator;
         }
 
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
         {
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<GetUsersRequest, GetUsersResponse>(request);
         }
+        //[HttpGet]
+        //[Route("{userId}")]
+        //public async Task<IActionResult> GetById([FromRoute] int userId)
+        //{
+        //    var request = new GetUserByIdRequest()
+        //    {
+        //        Id = userId
+        //    };
+        //    return await HandleRequest<GetUserByIdRequest, GetUserByIdResponse>(request);
+        //}
         [HttpGet]
-        [Route("{userId}")]
-        public async Task<IActionResult> GetById([FromRoute] int userId)
+        [Route("{me}")]
+        public async Task<IActionResult> GetUserMe([FromRoute] string me)
         {
-            var request = new GetUserByIdRequest()
+            var request = new GetUserMeRequest()
             {
-                UserId = userId
+                Me = me
             };
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await this.HandleRequest<GetUserMeRequest, GetUserMeResponse>(request);
         }
+        [AllowAnonymous]
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> AddUser([FromBody] AddUsersRequest request)
         {
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<AddUsersRequest, AddUsersResponse>(request);
         }
-        [HttpPatch]
+        [HttpPut]
         [Route("{userId}")]
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request, [FromRoute] int userId)
         {
             request.Id = userId;
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<UpdateUserRequest, UpdateUserResponse>(request);
         }
         [HttpDelete]
-        [Route("{userId}")]
-        public async Task<IActionResult> RemoveUser([FromRoute] int userId)
+        [Route("{userLogin}")]
+        public async Task<IActionResult> RemoveUser([FromRoute] string userLogin)
         {
             var request = new RemoveUserRequest()
             {
-                Id = userId
+                Login = userLogin
             };
-
-            var response = await _mediator.Send(request);
-            return Ok(response);
+            return await HandleRequest<RemoveUserRequest, RemoveUserResponse>(request);
         }
     }
 }
