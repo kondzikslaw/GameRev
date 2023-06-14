@@ -16,14 +16,20 @@ namespace GameRev.DataAccess
 
         public DbSet<User> Users { get; set; }
 
-        public DbSet<Genre> Genre { get; set; }
+        //public DbSet<Genre> Genre { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //modelBuilder.Entity<Game>()
+            //    .HasMany(e => e.Genres)
+            //    .WithMany()
+            //    .UsingEntity(j => j.ToTable("GameGenre"));
+
             modelBuilder.Entity<Game>()
-                .HasMany(e => e.Genres)
-                .WithMany()
-                .UsingEntity(j => j.ToTable("GameGenre"));
+                .Property(x => x.Genres)
+                .HasConversion(
+                x => string.Join(',', x),
+                x => x.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => Enum.Parse<Genre>(x)).ToList());
 
             base.OnModelCreating(modelBuilder);
         }

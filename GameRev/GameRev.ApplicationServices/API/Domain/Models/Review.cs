@@ -9,7 +9,7 @@
         public double Rate { get; set; }
 
         public DateTime PublishDate { get; set; }
-
+        
         public string AuthorId { get; set; }
     }
 }

@@ -28,9 +28,7 @@ namespace GameRev.ApplicationServices.Mappings
             CreateMap<UpdateReviewRequest, Review>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.Content, y => y.MapFrom(z => z.Content))
-                .ForMember(x => x.Rate, y => y.MapFrom(z => z.Rate))
-                .ForMember(x => x.PublishDate, y => y.MapFrom(z => z.PublishDate))
-                .ForMember(x => x.AuthorId, y => y.MapFrom(z => z.AuthorId));
+                .ForMember(x => x.Rate, y => y.MapFrom(z => z.Rate));
         }
     }
 }

@@ -24,7 +24,7 @@ namespace GameRev.ApplicationServices.API.Handlers.Users
         {
             var query = new GetUserQuery()
             {
-                Id = request.Id
+                Login = request.AuthenticationLogin
             };
             var user = await _queryExecutor.Execute(query);
             var mappedUser = _mapper.Map<Domain.Models.User>(user);

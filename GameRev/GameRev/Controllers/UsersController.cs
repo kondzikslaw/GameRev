@@ -21,16 +21,6 @@ namespace GameRev.Controllers
         {
             return await HandleRequest<GetUsersRequest, GetUsersResponse>(request);
         }
-        //[HttpGet]
-        //[Route("{userId}")]
-        //public async Task<IActionResult> GetById([FromRoute] int userId)
-        //{
-        //    var request = new GetUserByIdRequest()
-        //    {
-        //        Id = userId
-        //    };
-        //    return await HandleRequest<GetUserByIdRequest, GetUserByIdResponse>(request);
-        //}
         [HttpGet]
         [Route("{me}")]
         public async Task<IActionResult> GetUserMe([FromRoute] string me)

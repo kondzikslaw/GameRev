@@ -4,6 +4,7 @@ using GameRev.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GameRev.DataAccess.Migrations
 {
     [DbContext(typeof(GameRevStorageContext))]
-    partial class GameRevStorageContextModelSnapshot : ModelSnapshot
+    [Migration("20230613194241_GenresToEnum")]
+    partial class GenresToEnum
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,7 +53,7 @@ namespace GameRev.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
                 });
 
             modelBuilder.Entity("GameRev.DataAccess.Entities.Review", b =>
@@ -85,7 +88,7 @@ namespace GameRev.DataAccess.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("Reviews", (string)null);
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("GameRev.DataAccess.Entities.User", b =>
@@ -127,7 +130,7 @@ namespace GameRev.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("GameUser", b =>
@@ -142,7 +145,7 @@ namespace GameRev.DataAccess.Migrations
 
                     b.HasIndex("UsersId");
 
-                    b.ToTable("GameUser", (string)null);
+                    b.ToTable("GameUser");
                 });
 
             modelBuilder.Entity("GameRev.DataAccess.Entities.Review", b =>

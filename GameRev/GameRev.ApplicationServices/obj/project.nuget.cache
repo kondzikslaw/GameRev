@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "IVkg+6/9KOuSAvdocP4KqU7Mxdnb2f/zWkQo+mOn2BBXw8Ux8Hz9DFiYFyaY+jH7KeImnc51YBg0+fVLjm9dNQ==",
+  "dgSpecHash": "B8EkHbEnvN1Sc4iQacaOCKqDMLvfHaBrus0sjS7PECDa+3fIbk6yzg09zeOyqLgworiEdBYDDBZw6R5gtUqYrA==",
   "success": true,
   "projectFilePath": "D:\\Projekty\\GameRev\\GameRev\\GameRev.ApplicationServices\\GameRev.ApplicationServices.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\fluentvalidation\\11.5.1\\fluentvalidation.11.5.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\fluentvalidation.aspnetcore\\11.3.0\\fluentvalidation.aspnetcore.11.3.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\11.5.1\\fluentvalidation.dependencyinjectionextensions.11.5.1.nupkg.sha512",

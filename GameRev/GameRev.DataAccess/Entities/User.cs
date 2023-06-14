@@ -2,12 +2,6 @@
 
 namespace GameRev.DataAccess.Entities
 {
-    public enum UserRoleEnum
-    {
-        None,
-        User,
-        Admin
-    }
     public class User : EntityBase
     {
         public string Login { get; set; }
@@ -18,6 +12,6 @@ namespace GameRev.DataAccess.Entities
         public DateTime RegisterDate { get; set; }
         public bool IsBlocked { get; set; }
         public List<Game>? Games { get; set; }
-        public UserRoleEnum? UserRole { get; set; }
+        public UserRole? UserRole { get; set; }
     }
 }

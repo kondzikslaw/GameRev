@@ -1,4 +1,6 @@
-﻿namespace GameRev.ApplicationServices.API.Domain.Models
+﻿using GameRev.DataAccess.Entities;
+
+namespace GameRev.ApplicationServices.API.Domain.Models
 {
     public class User
     {
@@ -17,5 +19,7 @@
         public bool IsBlocked { get; set; }
 
         public List<Game> Games { get; set; }
+
+        public UserRole UserRole { get; set; }
     }
 }

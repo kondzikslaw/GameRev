@@ -17,11 +17,9 @@ namespace GameRev.DataAccess.Entities
         public double Rate { get; set; }
 
         [Required]
-        [Timestamp]
         public DateTime PublishDate { get; set; }
 
         [Required]
-        [EmailAddress]
         public string AuthorId { get; set; }
     }
 }

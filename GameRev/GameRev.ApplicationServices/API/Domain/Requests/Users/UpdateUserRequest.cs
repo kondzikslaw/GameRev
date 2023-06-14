@@ -1,4 +1,5 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Responses.Users;
+using GameRev.DataAccess.Entities;
 using MediatR;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests.Users
@@ -18,5 +19,7 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Users
         public string Email { get; set; }
 
         public DateTime RegisterDate { get; set; }
+
+        public UserRole UserRole { get; set; }
     }
 }

@@ -2,12 +2,14 @@ using FluentValidation.AspNetCore;
 using GameRev;
 using GameRev.ApplicationServices;
 using GameRev.ApplicationServices.API.Domain.Responses;
-using GameRev.ApplicationServices.API.Validators;
+using GameRev.ApplicationServices.API.Validators.Reviews;
 using GameRev.ApplicationServices.Components.GiantBomb;
 using GameRev.ApplicationServices.Mappings;
 using GameRev.DataAccess;
 using GameRev.DataAccess.CQRS;
+using GameRev.DataAccess.Entities;
 using MediatR;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NLog.Web;
@@ -18,6 +20,8 @@ builder.Logging.SetMinimumLevel(LogLevel.Trace);
 builder.Host.UseNLog();
 
 builder.Services.AddLogging();
+
+builder.Services.AddScoped<IPasswordHasher<User>, PasswordHasher<User>>();
 
 // Add services to the container.
 builder.Services.AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddReviewsRequestValidator>());
