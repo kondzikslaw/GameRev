@@ -55,5 +55,12 @@ namespace GameRev.Controllers
             };
             return await HandleRequest<RemoveUserRequest, RemoveUserResponse>(request);
         }
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("authenticate")]
+        public async Task<IActionResult> Login([FromBody] LoginUserRequest request)
+        {
+            return await HandleRequest<LoginUserRequest, LoginUserResponse>(request);
+        }
     }
 }

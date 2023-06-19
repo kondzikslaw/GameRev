@@ -61,7 +61,6 @@ namespace GameRev.Authentication
 
                 var result = _passwordHasher.VerifyHashedPassword(user, user.Password, password);
 
-                // TODO: HASH!!!
                 if (user == null || result == PasswordVerificationResult.Failed)
                 {
                     return AuthenticateResult.Fail("Invalid Authorization Header");

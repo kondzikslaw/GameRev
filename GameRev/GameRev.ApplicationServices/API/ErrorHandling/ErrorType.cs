@@ -21,5 +21,7 @@
         public const string TooManyRequests = "TOO_MANY_REQUESTS";
 
         public const string Conflict = "CONFLICT";
+
+        public const string InvalidIncomingData = "INVALID_INCOMING_DATA";
     }
 }
