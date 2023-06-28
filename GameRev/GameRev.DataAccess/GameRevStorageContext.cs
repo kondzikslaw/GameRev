@@ -29,7 +29,11 @@ namespace GameRev.DataAccess
                 .Property(x => x.Genres)
                 .HasConversion(
                 x => string.Join(',', x),
-                x => x.Split(',', StringSplitOptions.RemoveEmptyEntries).Select(x => Enum.Parse<Genre>(x)).ToList());
+                x => x.Split(',', StringSplitOptions.None).Select(x => Enum.Parse<Genre>(x)).ToList());
+
+            modelBuilder.Entity<Game>()
+                .HasMany(u => u.Users)
+                .WithMany(g => g.Games);
 
             base.OnModelCreating(modelBuilder);
         }

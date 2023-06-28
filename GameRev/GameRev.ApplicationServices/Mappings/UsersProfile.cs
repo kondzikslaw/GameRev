@@ -15,7 +15,7 @@ namespace GameRev.ApplicationServices.Mappings
                 .ForMember(x => x.Surname, y => y.MapFrom(z => z.Surname))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.RegisterDate, y => y.MapFrom(z => z.RegisterDate))
-                .ForMember(x => x.Games, y => y.MapFrom(z => z.Games))
+                //.ForMember(x => x.Games, y => y.MapFrom(z => z.Games))
                 .ForMember(x => x.UserRole, y => y.MapFrom(z => z.UserRole));
 
             CreateMap<AddUsersRequest, User>()
@@ -25,6 +25,7 @@ namespace GameRev.ApplicationServices.Mappings
                 .ForMember(x => x.Surname, y => y.MapFrom(z => z.Surname))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.RegisterDate, y => y.MapFrom(z => z.RegisterDate));
+                //.ForMember(x => x.Games, y => y.MapFrom(z => z.Games));
 
             CreateMap<RemoveUserRequest, User>()
                 .ForMember(x => x.Login, y => y.MapFrom(z => z.Login));
@@ -36,6 +37,7 @@ namespace GameRev.ApplicationServices.Mappings
                 .ForMember(x => x.Surname, y => y.MapFrom(z => z.Surname))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.RegisterDate, y => y.MapFrom(z => z.RegisterDate))
+                //.ForMember(x => x.Games, y => y.MapFrom(z => z.Games))
                 .ForMember(x => x.UserRole, y => y.MapFrom(z => z.UserRole));
         }
     }

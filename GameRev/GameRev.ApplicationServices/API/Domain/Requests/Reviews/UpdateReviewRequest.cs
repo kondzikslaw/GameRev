@@ -14,5 +14,7 @@ namespace GameRev.ApplicationServices.API.Domain.Requests
         public DateTime PublishDate { get; set; }
 
         public string AuthorId { get; set; }
+
+        public int GameId { get; set; }
     }
 }

@@ -8,7 +8,9 @@ namespace GameRev.DataAccess.CQRS.Queries.Users
         public int Id { get; set; }
         public override Task<List<User>> Execute(GameRevStorageContext context)
         {
-            return context.Users.ToListAsync();
+            return context.Users
+                //.Include(x => x.Games)
+                .ToListAsync();
         }
     }
 }

@@ -18,7 +18,7 @@ namespace GameRev.ApplicationServices.API.Domain.Models
 
         public bool IsBlocked { get; set; }
 
-        public List<Game> Games { get; set; }
+        //public List<Game> Games { get; set; }
 
         public UserRole UserRole { get; set; }
     }

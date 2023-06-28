@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameRev.DataAccess.Entities
 {
@@ -8,6 +10,7 @@ namespace GameRev.DataAccess.Entities
     //    [MaxLength(50)]
     //    public string Name { get; set; }
     //}
+    [JsonConverter(typeof(StringEnumConverter))]
     public enum Genre
     {
         Adventure = 1,

@@ -1,6 +1,8 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Responses.Games;
 using GameRev.DataAccess.Entities;
 using MediatR;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace GameRev.ApplicationServices.API.Domain.Requests.Games
 {
@@ -12,6 +14,9 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Games
 
         public int ReleaseYear { get; set; }
 
-        public List<Genre> GenresId { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
+        public List<Genre> Genres { get; set; }
+
+        public List<User> Users { get; set; }
     }
 }

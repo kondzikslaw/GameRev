@@ -14,7 +14,7 @@ namespace GameRev.Controllers
         public UsersController(IMediator mediator) : base(mediator)
         {
         }
-
+        [AllowAnonymous]
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)

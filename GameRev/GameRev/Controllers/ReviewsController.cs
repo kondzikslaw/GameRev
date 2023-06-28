@@ -1,5 +1,7 @@
 ﻿using GameRev.ApplicationServices.API.Domain.Requests;
+using GameRev.ApplicationServices.API.Domain.Requests.Reviews;
 using GameRev.ApplicationServices.API.Domain.Responses;
+using GameRev.ApplicationServices.API.Domain.Responses.Reviews;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,12 +16,14 @@ namespace GameRev.Controllers
         public ReviewsController(IMediator mediator) : base(mediator)
         {
         }
+        [AllowAnonymous]
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllReviews([FromQuery] GetReviewsRequest request)
         {
             return await HandleRequest<GetReviewsRequest, GetReviewsResponse>(request);
         }
+        [AllowAnonymous]
         [HttpGet]
         [Route("{reviewId}")]
         public async Task<IActionResult> GetById([FromRoute] int reviewId)
@@ -29,6 +33,17 @@ namespace GameRev.Controllers
                 ReviewId = reviewId
             };
             return await HandleRequest<GetReviewByIdRequest, GetReviewByIdResponse>(request);
+        }
+        [AllowAnonymous]
+        [HttpGet]
+        [Route("gameId/{gameId}")]
+        public async Task<IActionResult> GetByGameId([FromRoute] int gameId)
+        {
+            var request = new GetReviewsByGameIdRequest()
+            {
+                GameId = gameId
+            };
+            return await HandleRequest<GetReviewsByGameIdRequest, GetReviewsByGameIdResponse>(request);
         }
         [HttpPost]
         [Route("")]

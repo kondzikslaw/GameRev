@@ -13,7 +13,8 @@ namespace GameRev.ApplicationServices.Mappings
                 .ForMember(x => x.Content, y => y.MapFrom(z => z.Content))
                 .ForMember(x => x.Rate, y => y.MapFrom(z => z.Rate))
                 .ForMember(x => x.PublishDate, y => y.MapFrom(z => z.PublishDate))
-                .ForMember(x => x.AuthorId, y => y.MapFrom(z => z.AuthorId));
+                .ForMember(x => x.AuthorId, y => y.MapFrom(z => z.AuthorId))
+                .ForMember(x => x.GameId, y => y.MapFrom(z => z.GameId));
 
             CreateMap<AddReviewsRequest, Review>()
                 .ForMember(x => x.GameId, y => y.MapFrom(z => z.GameId))
@@ -26,9 +27,12 @@ namespace GameRev.ApplicationServices.Mappings
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id));
 
             CreateMap<UpdateReviewRequest, Review>()
+                .ForMember(x => x.GameId, y => y.MapFrom(z => z.GameId))
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.Content, y => y.MapFrom(z => z.Content))
-                .ForMember(x => x.Rate, y => y.MapFrom(z => z.Rate));
+                .ForMember(x => x.Rate, y => y.MapFrom(z => z.Rate))
+                .ForMember(x => x.PublishDate, y => y.MapFrom(z => z.PublishDate))
+                .ForMember(x => x.AuthorId, y => y.MapFrom(z => z.AuthorId));
         }
     }
 }

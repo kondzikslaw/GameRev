@@ -26,7 +26,7 @@ namespace GameRev.ApplicationServices.API.Handlers.Games
         {
             var query = new GetGameQuery()
             {
-                Id = request.GameId
+                Id = request.Id
             };
             var game = await _queryExecutor.Execute(query);
 

@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.ComponentModel.DataAnnotations;
 
 namespace GameRev.DataAccess.Entities
 {
@@ -16,6 +18,7 @@ namespace GameRev.DataAccess.Entities
         public int ReleaseYear { get; set; }
         public List<Review>? Reviews { get; set; }
         public List<User> Users { get; set; }
+        [JsonConverter(typeof(StringEnumConverter))]
         public List<Genre> Genres { get; set; }
     }
 }

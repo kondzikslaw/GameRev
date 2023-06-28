@@ -2,6 +2,8 @@
 {
     public class Review
     {
+        public int GameId { get; set; }
+
         public int Id { get; set; }
 
         public string Content { get; set; }

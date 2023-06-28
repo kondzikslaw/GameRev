@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "Bb7z+x+70jErVhqe9YVlMdqPHo1g7nsQfss5QowLsZfX/Db5lAhPUVxb+OQmkwa/21kwkxM13wgxfEk4MxVoDw==",
+  "dgSpecHash": "WM7LT+DsUu/bb5V2dLDILpRgzUnccwKWkXt6v1EiP2EhzSwBZCtTig9jGEgnL668cfGINM82W29wcFvbFVPFEQ==",
   "success": true,
   "projectFilePath": "D:\\Projekty\\GameRev\\GameRev\\GameRev.DataAccess\\GameRev.DataAccess.csproj",
   "expectedPackageFiles": [
@@ -44,6 +44,7 @@
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.win32.systemevents\\5.0.0\\microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\system.configuration.configurationmanager\\5.0.0\\system.configuration.configurationmanager.5.0.0.nupkg.sha512",

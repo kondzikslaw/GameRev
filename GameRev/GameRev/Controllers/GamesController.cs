@@ -29,10 +29,11 @@ namespace GameRev.Controllers
         {
             var request = new GetGameByIdRequest()
             {
-                GameId = gameId
+                Id = gameId
             };
             return HandleRequest<GetGameByIdRequest, GetGameByIdResponse>(request);
         }
+        [AllowAnonymous]
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> AddGame([FromBody] AddGamesRequest request)

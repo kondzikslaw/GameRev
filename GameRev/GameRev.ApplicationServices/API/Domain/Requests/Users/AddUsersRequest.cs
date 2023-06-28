@@ -23,5 +23,7 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Users
         public bool IsBlocked { get; set; } = false;
 
         public UserRole UserRole { get; set; } = UserRole.User;
+
+        //public List<Game> Games { get; set; }
     }
 }
