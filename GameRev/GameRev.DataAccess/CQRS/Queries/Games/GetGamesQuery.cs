@@ -14,7 +14,7 @@ namespace GameRev.DataAccess.CQRS.Queries.Games
         {
             return context.Games
                 .Include(x => x.Reviews)
-                .Include(x => x.Users)
+                .Include(x => x.GameUsers).ThenInclude(y => y.User)
                 .Where(x => (string.IsNullOrEmpty(Title) || x.Title.Contains(Title)) &&
                 (RateMin == 0 || x.Reviews.Select(x => x.Rate).Average() >= RateMin) &&
                 (RateMax == 0 || x.Reviews.Select(x => x.Rate).Average() <= RateMax))

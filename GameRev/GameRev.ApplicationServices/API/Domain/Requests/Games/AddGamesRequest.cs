@@ -17,6 +17,6 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Games
         [JsonConverter(typeof(StringEnumConverter))]
         public List<Genre> Genres { get; set; }
 
-        public List<User> Users { get; set; }
+        //public List<GameUser> GameUsers { get; set; }
     }
 }

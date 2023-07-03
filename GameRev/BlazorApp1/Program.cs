@@ -1,0 +1,42 @@
+using BlazorApp1.Helpers;
+using BlazorApp1.Services;
+using BlazorApp1;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Microsoft.Extensions.DependencyInjection;
+using System;
+using System.Net.Http;
+using System.Threading.Tasks;
+
+namespace BlazorApp1
+{
+    public class Program
+    {
+        public static async Task Main(string[] args)
+        {
+            var builder = WebAssemblyHostBuilder.CreateDefault(args);
+            //builder.RootComponents.Add<App>("app");
+
+            builder.Services
+                .AddScoped<IAuthenticationService, AuthenticationService>()
+                .AddScoped<IUserService, UserService>()
+                .AddScoped<IGamesService, GamesService>()
+                .AddScoped<IReviewsService, ReviewsService>()
+                .AddScoped<IGameUsersService, GameUsersService>()
+                .AddScoped<IHttpService, HttpService>()
+                .AddScoped<ILocalStorageService, LocalStorageService>();
+
+            // configure http client
+            builder.Services.AddScoped(x => {
+                var apiUrl = new Uri(builder.Configuration["apiUrl"]);
+                return new HttpClient() { BaseAddress = apiUrl };
+            });
+
+            var host = builder.Build();
+
+            var authenticationService = host.Services.GetRequiredService<IAuthenticationService>();
+            await authenticationService.Initialize();
+
+            await host.RunAsync();
+        }
+    }
+}

@@ -181,7 +181,7 @@
           "lib/netstandard2.1/MediatR.Extensions.Microsoft.DependencyInjection.dll": {}
         }
       },
-      "Microsoft.AspNetCore.OpenApi/7.0.5": {
+      "Microsoft.AspNetCore.OpenApi/7.0.8": {
         "type": "package",
         "dependencies": {
           "Microsoft.OpenApi": "1.4.3"
@@ -220,7 +220,7 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Data.SqlClient/5.0.1": {
+      "Microsoft.Data.SqlClient/5.0.2": {
         "type": "package",
         "dependencies": {
           "Azure.Identity": "1.6.0",
@@ -283,11 +283,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore/7.0.5": {
+      "Microsoft.EntityFrameworkCore/7.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.5",
-          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.5",
+          "Microsoft.EntityFrameworkCore.Abstractions": "7.0.8",
+          "Microsoft.EntityFrameworkCore.Analyzers": "7.0.8",
           "Microsoft.Extensions.Caching.Memory": "7.0.0",
           "Microsoft.Extensions.DependencyInjection": "7.0.0",
           "Microsoft.Extensions.Logging": "7.0.0"
@@ -306,7 +306,7 @@
           "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Abstractions/7.0.5": {
+      "Microsoft.EntityFrameworkCore.Abstractions/7.0.8": {
         "type": "package",
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll": {
@@ -319,7 +319,7 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.Analyzers/7.0.5": {
+      "Microsoft.EntityFrameworkCore.Analyzers/7.0.8": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/_._": {}
@@ -328,10 +328,10 @@
           "lib/netstandard2.0/_._": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.Relational/7.0.5": {
+      "Microsoft.EntityFrameworkCore.Relational/7.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.EntityFrameworkCore": "7.0.5",
+          "Microsoft.EntityFrameworkCore": "7.0.8",
           "Microsoft.Extensions.Configuration.Abstractions": "7.0.0"
         },
         "compile": {
@@ -345,11 +345,11 @@
           }
         }
       },
-      "Microsoft.EntityFrameworkCore.SqlServer/7.0.5": {
+      "Microsoft.EntityFrameworkCore.SqlServer/7.0.8": {
         "type": "package",
         "dependencies": {
-          "Microsoft.Data.SqlClient": "5.0.1",
-          "Microsoft.EntityFrameworkCore.Relational": "7.0.5"
+          "Microsoft.Data.SqlClient": "5.0.2",
+          "Microsoft.EntityFrameworkCore.Relational": "7.0.8"
         },
         "compile": {
           "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll": {
@@ -764,7 +764,7 @@
           }
         }
       },
-      "NLog/5.2.0": {
+      "NLog/5.2.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/NLog.dll": {
@@ -777,12 +777,12 @@
           }
         }
       },
-      "NLog.Extensions.Logging/5.3.0": {
+      "NLog.Extensions.Logging/5.3.1": {
         "type": "package",
         "dependencies": {
           "Microsoft.Extensions.Configuration.Abstractions": "6.0.0",
           "Microsoft.Extensions.Logging": "6.0.0",
-          "NLog": "5.2.0"
+          "NLog": "5.2.1"
         },
         "compile": {
           "lib/net6.0/NLog.Extensions.Logging.dll": {
@@ -795,10 +795,10 @@
           }
         }
       },
-      "NLog.Web.AspNetCore/5.3.0": {
+      "NLog.Web.AspNetCore/5.3.1": {
         "type": "package",
         "dependencies": {
-          "NLog.Extensions.Logging": "5.3.0"
+          "NLog.Extensions.Logging": "5.3.1"
         },
         "compile": {
           "lib/net6.0/NLog.Web.AspNetCore.dll": {
@@ -1293,9 +1293,9 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v7.0",
         "dependencies": {
-          "Microsoft.AspNetCore.OpenApi": "7.0.5",
-          "Microsoft.EntityFrameworkCore": "7.0.5",
-          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.5",
+          "Microsoft.AspNetCore.OpenApi": "7.0.8",
+          "Microsoft.EntityFrameworkCore": "7.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "7.0.8",
           "Newtonsoft.Json": "13.0.3"
         },
         "compile": {
@@ -1508,10 +1508,10 @@
         "mediatr.extensions.microsoft.dependencyinjection.nuspec"
       ]
     },
-    "Microsoft.AspNetCore.OpenApi/7.0.5": {
-      "sha512": "yxFvk9BsgL/eDJVsPp0zbUpL73u9uXLYTnWoMBvnJdm8+970YuhM2XWcDOyetjkp8l8z00MHgfYHCRXOnLx/+Q==",
+    "Microsoft.AspNetCore.OpenApi/7.0.8": {
+      "sha512": "1dv1ujP2BF/OTg/lvxXlIB7DHFZlTkIKOMUOxvIKWklyzLlHLgYZDyLol+G8xmU+02fzAluiwvPocBK7GrRs8A==",
       "type": "package",
-      "path": "microsoft.aspnetcore.openapi/7.0.5",
+      "path": "microsoft.aspnetcore.openapi/7.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1519,7 +1519,7 @@
         "THIRD-PARTY-NOTICES.TXT",
         "lib/net7.0/Microsoft.AspNetCore.OpenApi.dll",
         "lib/net7.0/Microsoft.AspNetCore.OpenApi.xml",
-        "microsoft.aspnetcore.openapi.7.0.5.nupkg.sha512",
+        "microsoft.aspnetcore.openapi.7.0.8.nupkg.sha512",
         "microsoft.aspnetcore.openapi.nuspec"
       ]
     },
@@ -1617,10 +1617,10 @@
         "version.txt"
       ]
     },
-    "Microsoft.Data.SqlClient/5.0.1": {
-      "sha512": "uu8dfrsx081cSbEevWuZAvqdmANDGJkbLBL2G3j0LAZxX1Oy8RCVAaC4Lcuak6jNicWP6CWvHqBTIEmQNSxQlw==",
+    "Microsoft.Data.SqlClient/5.0.2": {
+      "sha512": "mxcYU9I5TLzUegLVXiTtOE89RXN3GafL1Y+ExIbXvivvQtxplI4wxOgsiZGO4TZC18OJqui7mLVmiYpdFFImRQ==",
       "type": "package",
-      "path": "microsoft.data.sqlclient/5.0.1",
+      "path": "microsoft.data.sqlclient/5.0.2",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1647,7 +1647,7 @@
         "lib/netstandard2.1/Microsoft.Data.SqlClient.dll",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.pdb",
         "lib/netstandard2.1/Microsoft.Data.SqlClient.xml",
-        "microsoft.data.sqlclient.5.0.1.nupkg.sha512",
+        "microsoft.data.sqlclient.5.0.2.nupkg.sha512",
         "microsoft.data.sqlclient.nuspec",
         "ref/net462/Microsoft.Data.SqlClient.dll",
         "ref/net462/Microsoft.Data.SqlClient.pdb",
@@ -1694,10 +1694,10 @@
         "runtimes/win-x86/native/Microsoft.Data.SqlClient.SNI.dll"
       ]
     },
-    "Microsoft.EntityFrameworkCore/7.0.5": {
-      "sha512": "RXbRLHHWP2Z3pq8qcL5nQ6LPeoOyp8hasM5bd0Te8PiQi3RjWQR4tcbdY5XMqQ+oTO9wA8/RLhZRn/hnxlTDnQ==",
+    "Microsoft.EntityFrameworkCore/7.0.8": {
+      "sha512": "J4eNwnGsaEeudWGvgEO+n9u5XYfKb/QmMjLPH/T2xUBKzuZsJ7nyNoEtNDo3DhQqyDHPxf2fDSuUwSJQFEj6JQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore/7.0.5",
+      "path": "microsoft.entityframeworkcore/7.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -1705,63 +1705,63 @@
         "buildTransitive/net6.0/Microsoft.EntityFrameworkCore.props",
         "lib/net6.0/Microsoft.EntityFrameworkCore.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.xml",
-        "microsoft.entityframeworkcore.7.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.7.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Abstractions/7.0.5": {
-      "sha512": "iwQso+hFRsEWjhH2WsEQj1D2QE5BlEXiXEt6A3SlYTPRPdZsyTNDeDDEdtxL+H/UJPQgQYY+9SMMRcEiXBmCAA==",
+    "Microsoft.EntityFrameworkCore.Abstractions/7.0.8": {
+      "sha512": "4+Kj43oGUHPneA/uZurt9Nj9NZt8PBV0vMI+iKOUhmHXQKCkRUzpJaRKIZ1QLy8LiEL5D3/AIRfclgokdJnINQ==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.abstractions/7.0.5",
+      "path": "microsoft.entityframeworkcore.abstractions/7.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Abstractions.xml",
-        "microsoft.entityframeworkcore.abstractions.7.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.abstractions.7.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.abstractions.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Analyzers/7.0.5": {
-      "sha512": "yMLM/aK1MikVqpjxd7PJ1Pjgztd3VAd26ZHxyjxG3RPeM9cHjvS5tCg9kAAayR6eHmBg0ffZsHdT28WfA5tTlA==",
+    "Microsoft.EntityFrameworkCore.Analyzers/7.0.8": {
+      "sha512": "FSEFD1j4HerUaPyOZ0/NQjZZBkxqDSx2ZKEZXOz1aOQz7PY2f1D6ZuIBTLF8zAq11f058O2cl72GXVRMfwQ5iw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.analyzers/7.0.5",
+      "path": "microsoft.entityframeworkcore.analyzers/7.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "analyzers/dotnet/cs/Microsoft.EntityFrameworkCore.Analyzers.dll",
         "lib/netstandard2.0/_._",
-        "microsoft.entityframeworkcore.analyzers.7.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.analyzers.7.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.analyzers.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.Relational/7.0.5": {
-      "sha512": "u/33DC4S6g2hpMPgBc5Kdnlz//nqHR5c/ovgjtiP/wQ7sOd0EOdygVzUJAAOxCwbtAHDsJXS9Vc3jLFYq0yu8Q==",
+    "Microsoft.EntityFrameworkCore.Relational/7.0.8": {
+      "sha512": "C9NYwZdtAd0Ov2jQz4vNplifA/zmvn7BN6k7HrxRdbK4pdg18mFDQAedkJX2hGngNEMwssapzlRhsUSV0Q34rA==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.relational/7.0.5",
+      "path": "microsoft.entityframeworkcore.relational/7.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.Relational.xml",
-        "microsoft.entityframeworkcore.relational.7.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.relational.7.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.relational.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.SqlServer/7.0.5": {
-      "sha512": "cUJqCiamT0EvpKNgZEV5fqNv2MyVfKNgOPQfFINqHiIKHOYrS0nTCUJP97+UuG0JIIrP792/PwnuNjbekImtBg==",
+    "Microsoft.EntityFrameworkCore.SqlServer/7.0.8": {
+      "sha512": "w4mGjE/3XvulWqpY6hOGR3Z0oKINuYebO+S6ccQSZDFGrz3xBmPg0EenEpfs8rqFWHM4125nqA1NLProsDgDCw==",
       "type": "package",
-      "path": "microsoft.entityframeworkcore.sqlserver/7.0.5",
+      "path": "microsoft.entityframeworkcore.sqlserver/7.0.8",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.dll",
         "lib/net6.0/Microsoft.EntityFrameworkCore.SqlServer.xml",
-        "microsoft.entityframeworkcore.sqlserver.7.0.5.nupkg.sha512",
+        "microsoft.entityframeworkcore.sqlserver.7.0.8.nupkg.sha512",
         "microsoft.entityframeworkcore.sqlserver.nuspec"
       ]
     },
@@ -2401,10 +2401,10 @@
         "packageIcon.png"
       ]
     },
-    "NLog/5.2.0": {
-      "sha512": "uYBgseY0m/9lQUbZYGsQsTBFOWrfs3iaekzzYMH6vFmpoOAvV8/bp1XxG/suZkwB5h8nAiTJAp7VENWRDKtKPA==",
+    "NLog/5.2.1": {
+      "sha512": "8H679iScYqXuas/f5CQ/JNRsqui/ENmk4XKWGFpGLomoASRl0vcOkQits01Iquc2ShB52wjjci3LVE8IUnFbxw==",
       "type": "package",
-      "path": "nlog/5.2.0",
+      "path": "nlog/5.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2421,14 +2421,14 @@
         "lib/netstandard1.5/NLog.xml",
         "lib/netstandard2.0/NLog.dll",
         "lib/netstandard2.0/NLog.xml",
-        "nlog.5.2.0.nupkg.sha512",
+        "nlog.5.2.1.nupkg.sha512",
         "nlog.nuspec"
       ]
     },
-    "NLog.Extensions.Logging/5.3.0": {
-      "sha512": "OocvBR+MqVMGWaBcGdvg2O/ZZOXyDzEtJHXc9ZbXawxspkQzTugsjngGH4EJ0mIUNw2wqJGKdsoSzc2A0b01dg==",
+    "NLog.Extensions.Logging/5.3.1": {
+      "sha512": "RvADdk+YD4qdVvmByolGkncId2WNN6iQBMuMnj/7pK5nu81hfBmYIH1dsj67WbH9pxhA0FygI3zUWoliVxmylw==",
       "type": "package",
-      "path": "nlog.extensions.logging/5.3.0",
+      "path": "nlog.extensions.logging/5.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2446,14 +2446,14 @@
         "lib/netstandard2.0/NLog.Extensions.Logging.xml",
         "lib/netstandard2.1/NLog.Extensions.Logging.dll",
         "lib/netstandard2.1/NLog.Extensions.Logging.xml",
-        "nlog.extensions.logging.5.3.0.nupkg.sha512",
+        "nlog.extensions.logging.5.3.1.nupkg.sha512",
         "nlog.extensions.logging.nuspec"
       ]
     },
-    "NLog.Web.AspNetCore/5.3.0": {
-      "sha512": "H7qeo8ftMJQ8jEIRsrMkjdJb8KmqjLHngb70NoXgobR+IVAHJKP4bOjpRF7uFyVb07ErxNESTNqM6/lNESlolQ==",
+    "NLog.Web.AspNetCore/5.3.1": {
+      "sha512": "CAIh9NjPR0QG6jbUZ/z2ktdMhOiK31ZHBkAhAEDqqEq/LlNxqx2LPnLgRlQHgM3h2o45tcvoQ2lsYmtSmU4UYA==",
       "type": "package",
-      "path": "nlog.web.aspnetcore/5.3.0",
+      "path": "nlog.web.aspnetcore/5.3.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -2469,7 +2469,7 @@
         "lib/netcoreapp3.1/NLog.Web.AspNetCore.xml",
         "lib/netstandard2.0/NLog.Web.AspNetCore.dll",
         "lib/netstandard2.0/NLog.Web.AspNetCore.xml",
-        "nlog.web.aspnetcore.5.3.0.nupkg.sha512",
+        "nlog.web.aspnetcore.5.3.1.nupkg.sha512",
         "nlog.web.aspnetcore.nuspec"
       ]
     },
@@ -3834,8 +3834,8 @@
       "GameRev.DataAccess >= 1.0.0",
       "MediatR >= 12.0.1",
       "MediatR.Extensions.Microsoft.DependencyInjection >= 11.1.0",
-      "NLog >= 5.2.0",
-      "NLog.Web.AspNetCore >= 5.3.0",
+      "NLog >= 5.2.1",
+      "NLog.Web.AspNetCore >= 5.3.1",
       "Newtonsoft.Json >= 13.0.3",
       "RestSharp >= 110.2.0"
     ]
@@ -3915,11 +3915,11 @@
           },
           "NLog": {
             "target": "Package",
-            "version": "[5.2.0, )"
+            "version": "[5.2.1, )"
           },
           "NLog.Web.AspNetCore": {
             "target": "Package",
-            "version": "[5.3.0, )"
+            "version": "[5.3.1, )"
           },
           "Newtonsoft.Json": {
             "target": "Package",
@@ -3946,7 +3946,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.305\\RuntimeIdentifierGraph.json"
       }
     }
   },

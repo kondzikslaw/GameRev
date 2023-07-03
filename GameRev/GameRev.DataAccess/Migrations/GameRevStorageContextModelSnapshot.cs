@@ -50,7 +50,22 @@ namespace GameRev.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Games", (string)null);
+                    b.ToTable("Games");
+                });
+
+            modelBuilder.Entity("GameRev.DataAccess.Entities.GameUser", b =>
+                {
+                    b.Property<int>("GameId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GameId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("GameUsers");
                 });
 
             modelBuilder.Entity("GameRev.DataAccess.Entities.Review", b =>
@@ -74,8 +89,6 @@ namespace GameRev.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("PublishDate")
-                        .IsConcurrencyToken()
-                        .ValueGeneratedOnAddOrUpdate()
                         .HasColumnType("datetime2");
 
                     b.Property<double>("Rate")
@@ -85,7 +98,7 @@ namespace GameRev.DataAccess.Migrations
 
                     b.HasIndex("GameId");
 
-                    b.ToTable("Reviews", (string)null);
+                    b.ToTable("Reviews");
                 });
 
             modelBuilder.Entity("GameRev.DataAccess.Entities.User", b =>
@@ -127,22 +140,26 @@ namespace GameRev.DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("GameUser", b =>
+            modelBuilder.Entity("GameRev.DataAccess.Entities.GameUser", b =>
                 {
-                    b.Property<int>("GamesId")
-                        .HasColumnType("int");
+                    b.HasOne("GameRev.DataAccess.Entities.Game", "game")
+                        .WithMany("GameUsers")
+                        .HasForeignKey("GameId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Property<int>("UsersId")
-                        .HasColumnType("int");
+                    b.HasOne("GameRev.DataAccess.Entities.User", "user")
+                        .WithMany("GameUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.HasKey("GamesId", "UsersId");
+                    b.Navigation("game");
 
-                    b.HasIndex("UsersId");
-
-                    b.ToTable("GameUser", (string)null);
+                    b.Navigation("user");
                 });
 
             modelBuilder.Entity("GameRev.DataAccess.Entities.Review", b =>
@@ -154,24 +171,16 @@ namespace GameRev.DataAccess.Migrations
                     b.Navigation("Game");
                 });
 
-            modelBuilder.Entity("GameUser", b =>
-                {
-                    b.HasOne("GameRev.DataAccess.Entities.Game", null)
-                        .WithMany()
-                        .HasForeignKey("GamesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("GameRev.DataAccess.Entities.User", null)
-                        .WithMany()
-                        .HasForeignKey("UsersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("GameRev.DataAccess.Entities.Game", b =>
                 {
+                    b.Navigation("GameUsers");
+
                     b.Navigation("Reviews");
+                });
+
+            modelBuilder.Entity("GameRev.DataAccess.Entities.User", b =>
+                {
+                    b.Navigation("GameUsers");
                 });
 #pragma warning restore 612, 618
         }

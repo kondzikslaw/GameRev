@@ -16,24 +16,17 @@ namespace GameRev.DataAccess
 
         public DbSet<User> Users { get; set; }
 
-        //public DbSet<Genre> Genre { get; set; }
+        public DbSet<GameUser> GameUsers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Game>()
-            //    .HasMany(e => e.Genres)
-            //    .WithMany()
-            //    .UsingEntity(j => j.ToTable("GameGenre"));
+            modelBuilder.Entity<GameUser>().HasKey(gu => new { gu.GameId, gu.UserId });
 
             modelBuilder.Entity<Game>()
                 .Property(x => x.Genres)
                 .HasConversion(
                 x => string.Join(',', x),
                 x => x.Split(',', StringSplitOptions.None).Select(x => Enum.Parse<Genre>(x)).ToList());
-
-            modelBuilder.Entity<Game>()
-                .HasMany(u => u.Users)
-                .WithMany(g => g.Games);
 
             base.OnModelCreating(modelBuilder);
         }

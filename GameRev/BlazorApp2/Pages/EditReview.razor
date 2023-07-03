@@ -1,0 +1,54 @@
+﻿@page "/reviews/edit/{Id}"
+@attribute [Authorize]
+@inject IReviewsService ReviewsService
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="Content" class="control-label">Content</label>
+                <input for="Content" class="form-control" @bind-value="@review.Content" />
+
+                <label for="Rate" class="control-label">Rate</label>
+                <input for="Rate" class="form-control" @bind-value="@review.Rate" />
+
+                <input type="hidden" @bind-value="@review.AuthorId" />
+
+                <input type="hidden" @bind-value="@review.PublishDate" />
+
+                <input type="hidden" @bind-value="@review.GameId" />
+
+                <input type="hidden" @bind-value="@review.Id" />
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" @onclick="() => UpdateReview()">Save</button>
+                <button type="button" class="btn btn-danger" @onclick="() => cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public string Id { get; set; }
+
+    Review review = new Review();
+
+    protected override async Task OnInitializedAsync()
+    {
+        review = await ReviewsService.GetById(Convert.ToInt32(Id));
+    }
+
+    protected async Task UpdateReview()
+    {
+        await ReviewsService.Update(review);
+        navigationManager.NavigateTo("/games");
+    }
+
+    void cancel()
+    {
+        navigationManager.NavigateTo("/games");
+    }
+}

@@ -17,7 +17,7 @@ namespace GameRev.DataAccess.Entities
         [MaxLength(4)]
         public int ReleaseYear { get; set; }
         public List<Review>? Reviews { get; set; }
-        public List<User> Users { get; set; }
+        public List<GameUser> GameUsers { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public List<Genre> Genres { get; set; }
     }

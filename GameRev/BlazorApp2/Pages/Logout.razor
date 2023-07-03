@@ -1,0 +1,35 @@
+﻿@page "/logout"
+@inject IAuthenticationService AuthenticationService
+@inject NavigationManager NavigationManager
+
+<div class="card mt-4">
+    <h4 class="card-header">You're logged out. You'll be redirected to home page in @counter</h4>
+</div>
+
+@code {
+
+    int counter = 5;
+    private static System.Timers.Timer aTimer;
+
+    protected override async void OnInitialized()
+    {
+        await AuthenticationService.Logout();
+        aTimer = new System.Timers.Timer(1000);
+        aTimer.Elapsed += CountDownAndGoHome;
+        aTimer.Enabled = true;
+    }
+
+    private void CountDownAndGoHome(Object source, System.Timers.ElapsedEventArgs e)
+    {
+        if (counter > 0)
+        {
+            counter -= 1;
+        }
+        else
+        {
+            aTimer.Enabled = false;
+            NavigationManager.NavigateTo("");
+        }
+        ;
+    }
+}
