@@ -11,6 +11,7 @@ namespace GameRev.ApplicationServices.Mappings
             CreateMap<User, API.Domain.Models.User>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.Login, y => y.MapFrom(z => z.Login))
+                .ForMember(x => x.Password, y => y.MapFrom(z => z.Password))
                 .ForMember(x => x.Name, y => y.MapFrom(z => z.Name))
                 .ForMember(x => x.Surname, y => y.MapFrom(z => z.Surname))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
@@ -28,14 +29,16 @@ namespace GameRev.ApplicationServices.Mappings
                 //.ForMember(x => x.Games, y => y.MapFrom(z => z.Games));
 
             CreateMap<RemoveUserRequest, User>()
-                .ForMember(x => x.Login, y => y.MapFrom(z => z.Login));
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id));
 
             CreateMap<UpdateUserRequest, User>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.Login, y => y.MapFrom(z => z.Login))
+                .ForMember(x => x.Password, y => y.MapFrom(z => z.Password))
                 .ForMember(x => x.Name, y => y.MapFrom(z => z.Name))
                 .ForMember(x => x.Surname, y => y.MapFrom(z => z.Surname))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
+                .ForMember(x => x.IsBlocked, y => y.MapFrom(z => z.IsBlocked))
                 .ForMember(x => x.RegisterDate, y => y.MapFrom(z => z.RegisterDate))
                 //.ForMember(x => x.Games, y => y.MapFrom(z => z.Games))
                 .ForMember(x => x.UserRole, y => y.MapFrom(z => z.UserRole));

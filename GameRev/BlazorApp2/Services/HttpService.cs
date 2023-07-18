@@ -34,7 +34,6 @@ namespace BlazorApp2.Services
         {
             var request = new HttpRequestMessage(HttpMethod.Post, uri);
             request.Content = new StringContent(JsonSerializer.Serialize(value), Encoding.UTF8, "application/json");
-            //request.Content = JsonContent.Create(value, value.GetType(), new MediaTypeHeaderValue("application/json"));
             return SendRequest<T>(request);
         }
 

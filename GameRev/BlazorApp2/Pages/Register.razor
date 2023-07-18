@@ -1,0 +1,61 @@
+﻿@page "/register"
+@inject IUserService UserService
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+<h1>
+    Add Game
+</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="Login" class="control-label">Login</label>
+                <input for="Login" class="form-control" @bind-value="@user.Login" />
+
+                <label for="Password" class="control-label">Password</label>
+                <input for="Password" type="password" class="form-control" @bind-value="@user.Password" />
+
+                <label for="ConfirmPassword" class="control-label">Confirm Password</label>
+                <input for="ConfirmPassword" type="password" class="form-control" @bind-value="@user.ConfirmPassword" />
+
+                <label for="Name" class="control-label">Name</label>
+                <input for="Name" class="form-control" @bind-value="@user.Name" />
+
+                <label for="Surname" class="control-label">Surname</label>
+                <input for="Surname" class="form-control" @bind-value="@user.Surname" />
+
+                <label for="Email" class="control-label">Email</label>
+                <input for="Email" class="form-control" @bind-value="@user.Email" />
+
+                <input type="hidden" @bind-value="@user.RegisterDate" />
+
+                <input type="hidden" @bind-value="@user.IsBlocked" />
+
+                <input type="hidden" @bind-value="@user.UserRole" />
+
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" @onclick="() => CreateArticle()">Save</button>
+                <button type="button" class="btn btn-danger" @onclick="() => cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@code {
+    User user = new User();
+
+    protected async Task CreateArticle()
+    {
+        user.RegisterDate = DateTime.Now;
+        user.IsBlocked = false;
+        user.UserRole = UserRole.User;
+        await UserService.Create(user);
+        navigationManager.NavigateTo("/");
+    }
+
+    void cancel()
+    {
+        navigationManager.NavigateTo("/");
+    }
+}

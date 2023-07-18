@@ -1,6 +1,7 @@
 ﻿@page "/logout"
 @inject IAuthenticationService AuthenticationService
 @inject NavigationManager NavigationManager
+@implements IDisposable
 
 <div class="card mt-4">
     <h4 class="card-header">You're logged out. You'll be redirected to home page in @counter</h4>
@@ -30,6 +31,11 @@
             aTimer.Enabled = false;
             NavigationManager.NavigateTo("");
         }
-        ;
+        InvokeAsync(StateHasChanged);
+    }
+
+    public void Dispose()
+    {
+        aTimer.Dispose();
     }
 }

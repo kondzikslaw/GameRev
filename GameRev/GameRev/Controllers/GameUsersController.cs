@@ -14,14 +14,12 @@ namespace GameRev.Controllers
         public GameUsersController(IMediator mediator) : base(mediator)
         {
         }
-        [AllowAnonymous]
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllGameUsers([FromQuery] GetGameUsersRequest request)
         {
             return await HandleRequest<GetGameUsersRequest, GetGameUsersResponse>(request);
         }
-        [AllowAnonymous]
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> AddGameUser([FromBody] AddGameUsersRequest request)

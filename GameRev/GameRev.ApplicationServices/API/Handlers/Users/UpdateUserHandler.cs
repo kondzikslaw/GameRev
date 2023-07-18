@@ -34,7 +34,7 @@ namespace GameRev.ApplicationServices.API.Handlers.Users
         {
             var query = new GetUserQuery
             {
-                Login = request.Login
+                Id = request.Id
             };
 
             var user = await _queryExecutor.Execute(query);
@@ -47,7 +47,10 @@ namespace GameRev.ApplicationServices.API.Handlers.Users
                 };
             }
 
-            request.Password = _passwordHasher.HashPassword(user, request.Password);
+            if (user.Password != request.Password)
+            {
+                request.Password = _passwordHasher.HashPassword(user, request.Password);
+            }
             var mappedUser = _mapper.Map<User>(request);
             var command = new UpdateUserCommand()
             {

@@ -29,7 +29,7 @@ namespace GameRev.ApplicationServices.API.Handlers.Users
         {
             var query = new GetUserQuery()
             {
-                Login = request.Login
+                Id = request.Id
             };
 
             var getUser = await _queryExecutor.Execute(query);

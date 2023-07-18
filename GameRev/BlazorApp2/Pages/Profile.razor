@@ -1,0 +1,39 @@
+﻿@page "/profile"
+@inject IUserService UserService
+
+<div>
+    <a class="btn btn-primary" href='/editProfile'>Edit Profile</a>
+    <a class="btn btn-primary" href='/changePassword'>Change Password</a>
+</div>
+
+<div class="card mt-4">
+    <h4 class="card-header">Profile</h4>
+    <div class="card-body">
+        <h6>User profile from secure api end point</h6>
+        @if (loading)
+        {
+            <div class="spinner-border spinner-border-sm"></div>
+        }
+        @if (user != null)
+        {
+            <ul>
+                <li>Name and Surname: @user.Name @user.Surname</li>
+                <li>Login: @user.Login</li>
+                <li>Email: @user.Email</li>
+                <li>Register Date: @user.RegisterDate</li>
+            </ul>
+        }
+    </div>
+</div>
+
+@code {
+    private bool loading;
+    private User user;
+
+    protected override async Task OnInitializedAsync()
+    {
+        loading = true;
+        user = await UserService.GetMe();
+        loading = false;
+    }
+}

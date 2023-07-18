@@ -1,0 +1,75 @@
+﻿@page "/editProfile"
+@using System.Text;
+@attribute [Authorize]
+@inject IUserService UserService
+@inject ILocalStorageService LocalStorageService
+@inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
+
+<div class="row">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="Login" class="control-label">Login</label>
+                <input for="Login" class="form-control" @bind-value="@user.Login" />
+
+                <label for="Name" class="control-label">Name</label>
+                <input for="Name" class="form-control" @bind-value="@user.Name" />
+
+                <label for="Surname" class="control-label">Surname</label>
+                <input for="Surname" class="form-control" @bind-value="@user.Surname" />
+
+                <label for="Email" class="control-label">Email</label>
+                <input for="Email" class="form-control" @bind-value="@user.Email" />
+
+                <input type="hidden" @bind-value="@user.RegisterDate" />
+
+                <input type="hidden" @bind-value="@user.IsBlocked" />
+
+                <input type="hidden" @bind-value="@user.UserRole" />
+
+                <input type="hidden" @bind-value="@user.Id" />
+
+            </div>
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" @onclick="() => UpdateUser()">Save</button>
+                <button type="button" class="btn btn-danger" @onclick="() => cancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@code {
+
+    private User user = new User();
+    private User AuthData { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = await UserService.GetMe();
+        AuthData = await LocalStorageService.GetItem<User>("user");
+    }
+
+    protected async Task UpdateUser()
+    {
+        var password = DecryptPasswordFromAuthData(AuthData.AuthData);
+        user.Password = password;
+        await UserService.Update(user);
+        await LocalStorageService.RemoveItem("user");
+        user.AuthData = $"{user.Login}:{password}".EncodeBase64();
+        await LocalStorageService.SetItem("user", user);
+        navigationManager.NavigateTo("/profile");
+    }
+
+    void cancel()
+    {
+        navigationManager.NavigateTo("/profile");
+    }
+
+    private string DecryptPasswordFromAuthData(string data)
+    {
+        var decryptedData = Convert.FromBase64String(data);
+        var credentials = Encoding.UTF8.GetString(decryptedData).Split(new[] { ':' }, 2);
+
+        return credentials[1];
+    }
+}

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "BlPLt8ZTzVjiI8pnJ94uO2nmyGtDvEO5ydbcrwedTVBqQ2g5uuiD/RWUApV43sS5RByzHmDqseTKRiDrs+aZ/g==",
+  "dgSpecHash": "hVycUTqfzI6ntQwRF8KV9qLKUhPE2aXL+yf1Qu5nLEAs82iHVxZf8jG2ln2SyKL9KrPJQM5h3rNTR68O3Pz8NQ==",
   "success": true,
   "projectFilePath": "D:\\Projekty\\GameRev\\GameRev\\BlazorApp2\\BlazorApp2.csproj",
   "expectedPackageFiles": [
@@ -33,7 +33,7 @@
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\system.net.http.json\\7.0.1\\system.net.http.json.7.0.1.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\system.text.encodings.web\\7.0.0\\system.text.encodings.web.7.0.0.nupkg.sha512",
     "C:\\Users\\kondzikslaw\\.nuget\\packages\\system.text.json\\7.0.2\\system.text.json.7.0.2.nupkg.sha512",
-    "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.8\\microsoft.netcore.app.runtime.mono.browser-wasm.7.0.8.nupkg.sha512"
+    "C:\\Users\\kondzikslaw\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\7.0.9\\microsoft.netcore.app.runtime.mono.browser-wasm.7.0.9.nupkg.sha512"
   ],
   "logs": []
 }

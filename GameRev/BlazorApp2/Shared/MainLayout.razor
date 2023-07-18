@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject IAuthenticationService AuthenticationService
 
 <div class="page">
     <div class="sidebar">
@@ -8,6 +9,20 @@
     <main>
         <div class="top-row px-4">
             <a href="https://docs.microsoft.com/aspnet/" target="_blank">About</a>
+            @if(AuthenticationService.User != null)
+            {
+                <a href="profile">Profile</a>
+                <a href="logout">Logout</a>
+                if(AuthenticationService.User.UserRole == UserRole.Admin)
+                {
+                    <a href="users">Users</a>
+                }
+            }
+            else
+            {
+                <a href="register">Register</a>
+                <a href="login">Login</a>
+            }
         </div>
 
         <article class="content px-4">

@@ -6,6 +6,6 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Users
 {
     public class RemoveUserRequest : RequestBase, IRequest<RemoveUserResponse>
     {
-        public string Login { get; set; }
+        public int Id { get; set; }
     }
 }

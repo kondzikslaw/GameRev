@@ -48,6 +48,14 @@ namespace GameRev.ApplicationServices.API.Handlers.Users
 
             }
 
+            if (getUser.IsBlocked)
+            {
+                return new LoginUserResponse()
+                {
+                    Error = new ErrorModel(ErrorType.ValidationError)
+                };
+            }
+
             var result = _passwordHasher.VerifyHashedPassword(getUser, getUser.Password, request.Password);
 
             if (result == PasswordVerificationResult.Failed)

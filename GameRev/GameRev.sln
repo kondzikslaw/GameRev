@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameRev.DataAccess", "GameR
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameRev.ApplicationServices", "GameRev.ApplicationServices\GameRev.ApplicationServices.csproj", "{A541CB1C-0E85-4A54-84F7-025ED7A8F337}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorApp2", "BlazorApp2\BlazorApp2.csproj", "{E966CBB0-2ED8-4704-95D5-C610861DCA2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlazorApp2", "BlazorApp2\BlazorApp2.csproj", "{E966CBB0-2ED8-4704-95D5-C610861DCA2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

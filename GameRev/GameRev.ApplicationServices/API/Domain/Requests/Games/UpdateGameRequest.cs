@@ -17,7 +17,5 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Games
         public int ReleaseYear { get; set; }
         [JsonConverter(typeof(StringEnumConverter))]
         public List<Genre> Genres { get; set; }
-
-        public List<User> Users { get; set; }
     }
 }

@@ -14,12 +14,23 @@ namespace GameRev.Controllers
         public UsersController(IMediator mediator) : base(mediator)
         {
         }
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         [Route("")]
         public async Task<IActionResult> GetAllUsers([FromQuery] GetUsersRequest request)
         {
             return await HandleRequest<GetUsersRequest, GetUsersResponse>(request);
+        }
+        [Authorize(Roles = "Admin")]
+        [HttpGet]
+        [Route("{id:int}")]
+        public Task<IActionResult> GetUserById([FromRoute] int id)
+        {
+            var request = new GetUserByIdRequest()
+            {
+                Id = id
+            };
+            return HandleRequest<GetUserByIdRequest, GetUserByIdResponse>(request);
         }
         [HttpGet]
         [Route("{me}")]
@@ -29,7 +40,7 @@ namespace GameRev.Controllers
             {
                 Me = me
             };
-            return await this.HandleRequest<GetUserMeRequest, GetUserMeResponse>(request);
+            return await HandleRequest<GetUserMeRequest, GetUserMeResponse>(request);
         }
         [AllowAnonymous]
         [HttpPost]
@@ -39,19 +50,20 @@ namespace GameRev.Controllers
             return await HandleRequest<AddUsersRequest, AddUsersResponse>(request);
         }
         [HttpPut]
-        [Route("{userId}")]
+        [Route("{userId:int}")]
         public async Task<IActionResult> UpdateUser([FromBody] UpdateUserRequest request, [FromRoute] int userId)
         {
             request.Id = userId;
             return await HandleRequest<UpdateUserRequest, UpdateUserResponse>(request);
         }
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
-        [Route("{userLogin}")]
-        public async Task<IActionResult> RemoveUser([FromRoute] string userLogin)
+        [Route("{userId}")]
+        public async Task<IActionResult> RemoveUser([FromRoute] int userId)
         {
             var request = new RemoveUserRequest()
             {
-                Login = userLogin
+                Id = userId
             };
             return await HandleRequest<RemoveUserRequest, RemoveUserResponse>(request);
         }

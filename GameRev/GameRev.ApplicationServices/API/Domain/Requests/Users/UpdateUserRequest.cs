@@ -20,6 +20,8 @@ namespace GameRev.ApplicationServices.API.Domain.Requests.Users
 
         public DateTime RegisterDate { get; set; }
 
+        public bool IsBlocked { get; set; }
+
         //public List<Game> Games { get; set; }
 
         public UserRole UserRole { get; set; }
