@@ -2,6 +2,7 @@
 using GameRev.ApplicationServices.API.Domain.Responses.Games;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GameRev.Controllers

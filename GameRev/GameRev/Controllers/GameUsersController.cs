@@ -20,6 +20,17 @@ namespace GameRev.Controllers
         {
             return await HandleRequest<GetGameUsersRequest, GetGameUsersResponse>(request);
         }
+        [HttpGet]
+        [Route("{gameId}/{userId}")]
+        public async Task<IActionResult> GetGameUsersByGameId([FromRoute] int gameId, [FromRoute] int userId)
+        {
+            var request = new GetGameUsersByGameIdRequest()
+            {
+                GameId = gameId,
+                UserId = userId
+            };
+            return await HandleRequest<GetGameUsersByGameIdRequest, GetGameUsersByGameIdResponse>(request);
+        }
         [HttpPost]
         [Route("")]
         public async Task<IActionResult> AddGameUser([FromBody] AddGameUsersRequest request)

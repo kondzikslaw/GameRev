@@ -11,8 +11,38 @@
       "Type": "subscription",
       "Value": "796a6b56-35e2-48f6-ac9d-4b88e54c34d5"
     },
+    "gamerev.subscriptionId": {
+      "Name": "gamerev.subscriptionId",
+      "Type": "subscription",
+      "Value": "796a6b56-35e2-48f6-ac9d-4b88e54c34d5"
+    },
+    "gamerev.resourceName": {
+      "Name": "gamerev.resourceName",
+      "Type": null,
+      "Value": "gamerev"
+    },
+    "mssql1.resourceGroupLocation": {
+      "Name": "mssql1.resourceGroupLocation",
+      "Type": "location",
+      "Value": "westeurope"
+    },
+    "gamerev.resourceGroupLocation": {
+      "Name": "gamerev.resourceGroupLocation",
+      "Type": null,
+      "Value": "westeurope"
+    },
     "mssql1.resourceGroupName": {
       "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "GameRev"
+    },
+    "subscriptionId": {
+      "Name": "subscriptionId",
+      "Type": "subscription",
+      "Value": "796a6b56-35e2-48f6-ac9d-4b88e54c34d5"
+    },
+    "gamerev.resourceGroupName": {
+      "Name": "gamerev.resourceGroupName",
       "Type": "resourceGroup",
       "Value": "GameRev"
     }

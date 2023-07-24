@@ -19,17 +19,7 @@ using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddCors(options =>
-{
-    options.AddDefaultPolicy(
-        builder =>
-        {
-            builder
-            .AllowAnyOrigin()
-            .AllowAnyHeader()
-            .AllowAnyMethod();
-        });
-});
+
 
 builder.Services.AddAuthentication("BasicAuthentication")
     .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
@@ -70,7 +60,22 @@ builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
 
 builder.Services.AddDbContext<GameRevStorageContext>(
-    opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("GameRevDatabaseConnection")));
+    opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("AzureGameRevDatabaseConnection")));
+
+var MyCorsPolicy = "_myCorsPolicy";
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: MyCorsPolicy,
+        builder =>
+        {
+            builder
+            .WithOrigins("https://gamerevclient.azurewebsites.net")
+            //.AllowAnyOrigin()
+            //.WithOrigins("https://localhost:7137")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+        });
+});
 
 builder.Services.AddControllers();
 
@@ -94,7 +99,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors();
+app.UseCors(MyCorsPolicy);
 
 app.UseAuthorization();
 
