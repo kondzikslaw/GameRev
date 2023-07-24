@@ -1,11 +1,8 @@
 ﻿@page "/games/{Id}"
 @inject IGamesService GamesService
+@inject IGameUsersService GameUsersService
 @inject IAuthenticationService AuthenticationService
 @inject NavigationManager NavigationManager
-
-<div>
-    <a class="btn btn-primary" href='/addGameUser'>Add</a>
-</div>
 
 <div class="card mt-4">
     <h4 class="card-header"></h4>
@@ -34,12 +31,21 @@
                 </td>
                 <td>
                     <a class="btn btn-primary" href='/reviews/gameId/@game.Id'>Show Reviews</a>
-                    <a class="btn btn-primary" href='/addReview/@game.Id'>Add Review</a>
+
                         @if (AuthenticationService.User != null)
                         {
-                        <a class="btn btn-primary" href='/games/edit/@game.Id'>Edit</a>
-                        <a class="btn btn-danger" @onclick="() => DeleteGame(game.Id)">Delete</a>
+                        <a class="btn btn-primary" href='/addReview/@game.Id'>Add Review</a>
+                            @if (gameUser != null && AuthenticationService.User.Id == gameUser.UserId)
+                            {
+                            <a class="btn btn-primary" href='/games/edit/@game.Id'>Edit</a>
+                            <a class="btn btn-danger" @onclick="() => DeleteGame(game.Id)">Delete</a>
+                            }
+                            if(gameUser != null && AuthenticationService.User.Id == gameUser.UserId && gameUser.Role == GameUserRole.Owner)
+                            {
+                            <a class="btn btn-primary" href='/addGameUser/gameId/@game.Id'>Add Moderator</a>
+                            }
                         }
+                        
                 </td>
                 </tr>
             </ul>
@@ -50,6 +56,7 @@
 @code {
     private bool loading;
     private Game game;
+    private GameUser? gameUser;
     [Parameter]
     public string Id { get; set; }
 
@@ -58,6 +65,7 @@
     {
         loading = true;
         game = await GamesService.GetById(Convert.ToInt32(Id));
+        gameUser = await GameUsersService.GetByGameId(Convert.ToInt32(Id), AuthenticationService.User.Id);
         loading = false;
     }
     [Authorize]

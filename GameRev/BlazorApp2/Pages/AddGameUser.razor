@@ -1,4 +1,4 @@
-﻿@page "/addGameUser"
+﻿@page "/addGameUser/gameId/{Id}"
 @attribute [Authorize]
 @inject IGameUsersService GameUsersService
 @inject Microsoft.AspNetCore.Components.NavigationManager navigationManager
@@ -10,11 +10,15 @@
     <div class="col-md-4">
         <form>
             <div class="form-group">
-                <label for="GameId" class="control-label">GameId</label>
-                <input for="GameId" class="form-control" @bind-value="@gameUser.GameId" />
+                @*<label for="GameId" class="control-label">GameId</label>
+                <input for="GameId" class="form-control" @bind-value="@gameUser.GameId" />*@
 
                 <label for="UserId" class="control-label">UserId</label>
                 <input for="UserId" class="form-control" @bind-value="@gameUser.UserId" />
+
+                <input type="hidden" @bind-value="@gameUser.Role" />
+
+                <input type="hidden" @bind-value="@gameUser.GameId" />
 
             </div>
             <div class="form-group">
@@ -26,10 +30,15 @@
 </div>
 
 @code {
+    [Parameter]
+    public string Id { get; set; }
+
     GameUser gameUser = new GameUser();
 
     protected async Task CreateArticle()
     {
+        gameUser.GameId = Convert.ToInt32(Id);
+        gameUser.Role = GameUserRole.Moderator;
         await GameUsersService.Create(gameUser);
         navigationManager.NavigateTo("/games");
     }

@@ -66,6 +66,7 @@
         gameUser.GameId = game.Id;
         User me = await UserService.GetMe();
         gameUser.UserId = me.Id;
+        gameUser.Role = GameUserRole.Owner;
         await GameUsersService.Create(gameUser);
         navigationManager.NavigateTo("/games");
     }

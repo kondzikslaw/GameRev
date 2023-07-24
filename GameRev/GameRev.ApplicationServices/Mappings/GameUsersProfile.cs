@@ -10,11 +10,13 @@ namespace GameRev.ApplicationServices.Mappings
         {
             CreateMap<GameUser, API.Domain.Models.GameUser>()
                 .ForMember(x => x.GameId, y => y.MapFrom(z => z.GameId))
-                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId));
+                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId))
+                .ForMember(x => x.Role, y => y.MapFrom(z => z.Role));
 
             CreateMap<AddGameUsersRequest, GameUser>()
                 .ForMember(x => x.GameId, y => y.MapFrom(z => z.GameId))
-                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId));
+                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId))
+                .ForMember(x => x.Role, y => y.MapFrom(z => z.Role));
         }
     }
 }

@@ -10,6 +10,6 @@
         public DateTime RegisterDate { get; set; }
         public bool IsBlocked { get; set; }
         public List<GameUser> GameUsers { get; set; }
-        public UserRole? UserRole { get; set; }
+        public UserRole UserRole { get; set; }
     }
 }

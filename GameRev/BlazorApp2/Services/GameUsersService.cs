@@ -20,5 +20,10 @@
         {
             return _httpService.Get<IEnumerable<GameUser>>("/gameUsers");
         }
+
+        public Task<GameUser> GetByGameId(int gameId, int userId)
+        {
+            return _httpService.Get<GameUser>($"/gameUsers/{gameId}/{userId}");
+        }
     }
 }
